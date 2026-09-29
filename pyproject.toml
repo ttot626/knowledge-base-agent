@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kb-agent"
+version = "0.1.0"
+description = "知识库问答 Agent：RAG + MCP + 混合检索（RRF）+ 自动评测"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "任映然", email = "yingranren369@gmail.com" }]
+dependencies = [
+    "langchain>=1.0",
+    "langchain-core>=1.0",
+    "langchain-openai>=1.0",
+    "langchain-mcp-adapters>=0.1.14",
+    "openai>=1.40",
+    "mcp>=1.2",
+    "asyncpg>=0.29",
+    "fastembed>=0.4",
+    "python-dotenv>=1.0",
+    "pydantic>=2.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.23",
+    "black>=24.0",
+    "flake8>=7.0",
+    "isort>=5.13",
+]
+eval = [
+    "ragas==0.3.9",
+    "datasets>=2.19",
+    "pandas>=2.0",
+    "openpyxl>=3.1",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+kb_agent = ["**/*.py"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]

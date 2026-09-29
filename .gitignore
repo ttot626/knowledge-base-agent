@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+
+# 环境变量（含密钥，切勿提交）
+.env
+
+# 评测输出
+evaluation/results/*.csv
+!evaluation/results/.gitkeep
+
+# IDE / 系统
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# 本地模型缓存
+.cache/
